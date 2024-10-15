@@ -2,6 +2,9 @@
   grid-area: nav;
   background-color: burlywood;
   padding: 20px;
+  height: calc(
+    100vh - 60px
+  ); /* Высота навбара = высота экрана минус высота хедера */
 }
 
 .item {
@@ -10,4 +13,9 @@
 
 .active {
   color: brown;
+}
+.item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
 }

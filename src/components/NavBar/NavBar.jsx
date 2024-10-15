@@ -6,12 +6,12 @@ const NavBar = () => {
     <div className={s.nav}>
       <nav>
         <div>
-          <a className={`${s.item} ${s.active}`} href="">
+          <a className={`${s.item} ${s.active}`} href="/profile">
             Profile
           </a>
         </div>
         <div>
-          <a className={s.item} href="">
+          <a className={s.item} href="/dialogs">
             Message
           </a>
         </div>
