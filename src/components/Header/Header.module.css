@@ -1,5 +1,7 @@
 .header {
   grid-area: header;
   background-color: green;
-  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }

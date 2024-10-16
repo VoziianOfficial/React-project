@@ -1,21 +1,17 @@
 .nav {
   grid-area: nav;
-  background-color: burlywood;
+  background-color: black;
   padding: 20px;
-  height: calc(
-    100vh - 60px
-  ); /* Высота навбара = высота экрана минус высота хедера */
 }
 
-.item {
-  color: rgb(255, 255, 255);
+.item:hover {
+  color: cadetblue;
 }
 
-.active {
-  color: brown;
+.item:active {
+  color: rgb(126, 95, 160);
 }
-.item img {
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
+
+.linkWrapper {
+  margin-bottom: 5px;
 }

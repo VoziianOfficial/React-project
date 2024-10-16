@@ -1,16 +1,33 @@
-/* Сброс для списков и ссылок */
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f6f6fa;
+  padding: 40px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
 ul,
 ol {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: #f6f6fa;
 }
 
-/* Дополнительные стили для текста и кода */
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

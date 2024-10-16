@@ -1,12 +1,9 @@
-.app-wrapper {
-  margin: 0 auto;
+.appWrapper {
   display: grid;
-  width: 1200px;
   grid-template-areas:
     "header header"
     "nav content";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 20px; /* Пробелы между колонками */
-  background-color: cornflowerblue;
+  grid-template-columns: 250px 1fr; /* Ширина навбара и основного контента */
+  grid-template-rows: 60px 1fr; /* Высота хедера */
+  height: 100vh;
 }
