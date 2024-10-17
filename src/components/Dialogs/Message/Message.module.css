@@ -3,18 +3,13 @@
   grid-template-columns: 2fr 20fr;
 }
 
-.dialogsList {
-  padding: 10px;
-}
-
-.dialogItem:hover {
-  color: rgb(0, 195, 255);
-}
-
 .messagesList {
   padding: 10px;
 }
 
+.messageItem {
+  color: black;
+}
 .messageItem:hover {
   color: rgb(0, 195, 255);
 }

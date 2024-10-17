@@ -5,3 +5,47 @@
 .item img {
   width: 80px;
 }
+
+.myPostsTitle {
+  margin-bottom: 5px;
+}
+
+.textareaInput {
+  border-radius: 10px;
+  border-color: darkgreen;
+  border-width: 2px;
+  padding: 6px;
+}
+
+.textareaInput:focus {
+  border-color: rgb(161, 148, 8);
+  outline: none;
+}
+
+.postsBtns {
+  display: flex;
+  margin-top: 5px;
+  margin-left: 13px;
+  margin-bottom: 10px;
+}
+
+.addBtn {
+  color: white;
+  background-color: cadetblue;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+  border-radius: 4px;
+  min-width: 33px;
+  height: 20px;
+}
+
+.removeBtn {
+  color: white;
+  background-color: brown;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  min-width: 33px;
+  height: 20px;
+}

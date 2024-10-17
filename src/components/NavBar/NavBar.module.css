@@ -4,6 +4,9 @@
   padding: 20px;
 }
 
+.item {
+  color: white;
+}
 .item:hover {
   color: cadetblue;
 }

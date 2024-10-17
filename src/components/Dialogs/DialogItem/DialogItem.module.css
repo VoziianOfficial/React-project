@@ -1,0 +1,12 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 20fr;
+}
+
+.dialogItem {
+  color: black;
+}
+
+.dialogItem:hover {
+  color: rgb(0, 195, 255);
+}

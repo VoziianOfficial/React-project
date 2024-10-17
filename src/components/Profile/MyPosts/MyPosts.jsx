@@ -6,11 +6,15 @@ const MyPosts = () => {
   return (
     <>
       <div className={s.postsWrapper}>
-        My Posts
+        <h3 className={s.myPostsTitle}> My Posts </h3>
         <div>
-          <textarea></textarea>
-          <button>Add Post</button>
-          <button>Remove</button>
+          <div>
+            <textarea placeholder="..." className={s.textareaInput}></textarea>
+          </div>
+          <div className={s.postsBtns}>
+            <button className={s.addBtn}>Add Post</button>
+            <button className={s.removeBtn}>Remove</button>
+          </div>
         </div>
         <div className="s.posts">
           <Post message="Hi, how are you?" likeCount={5} />
