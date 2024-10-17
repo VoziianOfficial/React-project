@@ -7,20 +7,34 @@ import Message from "./Message/Message";
 const Dialogs = () => {
   const { id } = useParams(); // Получаем ID из параметров маршрута
 
+  let dialogsData = [
+    { id: 1, name: "Leys" },
+    { id: 2, name: "Izym" },
+    { id: 3, name: "Oyshen" },
+    { id: 4, name: "Byblik" },
+  ];
+
+  let messagesData = [
+    { id: 1, message: "Hi bro" },
+    { id: 2, message: "Hey man, how are you?" },
+    { id: 3, message: "Whats up" },
+    { id: 4, message: "Yo man" },
+  ];
+
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsList}>
-        <DialogItem name="Leys" id="1" />
-        <DialogItem name="Izym" id="2" />
-        <DialogItem name="Oyshen" id="3" />
-        <DialogItem name="Byblik" id="4" />
+        <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
+        <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
+        <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
+        <DialogItem name={dialogsData[3].name} id={dialogsData[3].id} />
       </div>
 
       <div className={s.messagesList}>
-        <Message message="Hi" />
-        <Message message="Hey man" />
-        <Message message="Whats up" />
-        <Message message="Yo" />
+        <Message message={messagesData[0].message} />
+        <Message message={messagesData[1].message} />
+        <Message message={messagesData[2].message} />
+        <Message message={messagesData[3].message} />
       </div>
     </div>
   );
