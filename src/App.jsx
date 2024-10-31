@@ -6,6 +6,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import NotFound from "./components/NotFound/NotFound";
+
 const App = () => {
   return (
     <div className="appWrapper">

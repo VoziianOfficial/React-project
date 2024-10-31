@@ -1,35 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import s from "./MyPosts.module.css";
 import Post from "../Post/Post";
+import state, { addPost as addPostToState } from "../../../redux/state";
 
 const MyPosts = () => {
-  let postsData = [
-    { id: 1, message: "Hi, how are you?", likesCount: 5 },
-    { id: 2, message: "It's my first post", likesCount: 11 },
-  ];
+  const [posts, setPost] = useState(state.posts);
+  const newPostElement = React.createRef();
+
+  useEffect(() => {
+    const savedPosts = JSON.parse(localStorage.getItem("posts"));
+    if (savedPosts) {
+      setPost(savedPosts);
+    }
+  }, []);
+
+  const addPost = () => {
+    const text = newPostElement.current.value;
+    if (text.trim()) {
+      addPostToState(text);
+      setPost([...state.posts]);
+
+      newPostElement.current.value = "";
+    }
+  };
+
+  const postsElements = posts.map((post) => (
+    <Post key={post.id} message={post.message} likesCount={post.likesCount} />
+  ));
+
   return (
     <>
       <div className={s.postsWrapper}>
         <h3 className={s.myPostsTitle}> My Posts </h3>
         <div>
           <div>
-            <textarea placeholder="..." className={s.textareaInput}></textarea>
+            <textarea
+              ref={newPostElement}
+              placeholder="..."
+              className={s.textareaInput}
+            ></textarea>
           </div>
           <div className={s.postsBtns}>
-            <button className={s.addBtn}>Add Post</button>
+            <button onClick={addPost} className={s.addBtn}>
+              Add Post
+            </button>
             <button className={s.removeBtn}>Remove</button>
           </div>
         </div>
-        <div className="s.posts">
-          <Post
-            message={postsData[0].message}
-            likeCount={postsData[0].likesCount}
-          />
-          <Post
-            message={postsData[1].message}
-            likeCount={postsData[1].likesCount}
-          />
-        </div>
+        <div className={s.posts}>{postsElements}</div>
       </div>
     </>
   );

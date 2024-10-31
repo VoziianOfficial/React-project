@@ -4,7 +4,10 @@
 }
 
 .dialogsList {
+  display: flex;
   padding: 10px;
+  flex-direction: column;
+  gap: 38px;
 }
 
 .dialogItem:hover {
