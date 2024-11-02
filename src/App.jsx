@@ -13,7 +13,10 @@ const App = () => {
       <Header />
       <NavBar />
       <Routes>
-        <Route path="/dialogs/*" element={<Dialogs />} />
+        <Route path="/dialogs" element={<Dialogs />} />{" "}
+        {/* Общий список диалогов */}
+        <Route path="/dialogs/:id" element={<Dialogs />} />{" "}
+        {/* Открытый диалог */}
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

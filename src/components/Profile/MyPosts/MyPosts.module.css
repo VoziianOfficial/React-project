@@ -34,10 +34,10 @@
   background-color: cadetblue;
   cursor: pointer;
   border: none;
-  margin-right: 10px;
   border-radius: 4px;
-  min-width: 33px;
-  height: 20px;
+  min-width: 40px;
+  height: 25px;
+  margin-left: 110px;
 }
 
 .removeBtn {
@@ -48,4 +48,5 @@
   border-radius: 4px;
   min-width: 33px;
   height: 20px;
+  margin-bottom: 10px;
 }

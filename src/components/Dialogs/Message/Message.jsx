@@ -5,7 +5,8 @@ const Message = (props) => {
   return (
     <div className={s.messageContainer}>
       {props.message}
-      <textarea name="" id=""></textarea>
+      {/* <textarea className={s.textarea} name="" id=""></textarea>
+      <button>Send</button> */}
     </div>
   );
 };

@@ -4,37 +4,56 @@ import Post from "../Post/Post";
 import state, { addPost as addPostToState } from "../../../redux/state";
 
 const MyPosts = () => {
-  const [posts, setPost] = useState(state.posts);
+  const [posts, setPost] = useState(() => {
+    const savedPosts = JSON.parse(localStorage.getItem("posts"));
+    return savedPosts || state.posts;
+  });
   const newPostElement = React.createRef();
 
   useEffect(() => {
-    const savedPosts = JSON.parse(localStorage.getItem("posts"));
-    if (savedPosts) {
-      setPost(savedPosts);
-    }
-  }, []);
+    localStorage.setItem("posts", JSON.stringify(posts));
+  }, [posts]);
 
   const addPost = () => {
     const text = newPostElement.current.value;
     if (text.trim()) {
       addPostToState(text);
-      setPost([...state.posts]);
-
-      newPostElement.current.value = "";
+      const updatePosts = [...state.posts];
+      setPost(updatePosts);
+      newPostElement.current.value = ""; // очистка поля ввода
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      addPost();
+    }
+  };
+
+  // Изменим функцию удаления так, чтобы она принимала id поста
+  const removePost = (id) => {
+    setPost((prevPosts) => prevPosts.filter((post) => post.id !== id));
+  };
+
+  // Обновим отображение каждого поста и добавим функцию удаления
   const postsElements = posts.map((post) => (
-    <Post key={post.id} message={post.message} likesCount={post.likesCount} />
+    <div key={post.id} className={s.post}>
+      <Post message={post.message} likesCount={post.likesCount} />
+      <button onClick={() => removePost(post.id)} className={s.removeBtn}>
+        Remove
+      </button>
+    </div>
   ));
 
   return (
     <>
       <div className={s.postsWrapper}>
-        <h3 className={s.myPostsTitle}> My Posts </h3>
+        <h3 className={s.myPostsTitle}>My Posts</h3>
         <div>
           <div>
             <textarea
+              onKeyDown={handleKeyDown}
               ref={newPostElement}
               placeholder="..."
               className={s.textareaInput}
@@ -44,7 +63,6 @@ const MyPosts = () => {
             <button onClick={addPost} className={s.addBtn}>
               Add Post
             </button>
-            <button className={s.removeBtn}>Remove</button>
           </div>
         </div>
         <div className={s.posts}>{postsElements}</div>
